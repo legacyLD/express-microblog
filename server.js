@@ -8,13 +8,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
 
 // we can access Post and Comment by calling db.Post and db.Comment respectively
 var db = require('./models');
 
 
 app.get('/', function (req, res) {
-  res.send('This site works!');
+  res.render('index.html');
 });
 
 
@@ -37,7 +39,6 @@ app.get('/api/posts', function (req, res) {
 app.post('/api/posts', function (req, res) {
   // create new post with form data (`req.body`)
   var newPost = new db.Post(req.body);
-  newPost.tags=req.body.tags.split(' ');
 
   // save new post in db
   newPost.save(function (err, savedPost) {
@@ -76,8 +77,7 @@ app.put('/api/posts/:id', function (req, res) {
     // update the posts's attributes
     foundPost.title = req.body.title;
     foundPost.body = req.body.body;
-    foundPost.mood = req.body.mood;
-    foundPost.tags = req.body.tags;
+
 
     // save updated post in db
     foundPost.save(function (err, savedPost) {
