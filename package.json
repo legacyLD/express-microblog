@@ -1,0 +1,24 @@
+{
+  "name": "express-microblog",
+  "version": "1.0.0",
+  "description": "**Objective:** Use Node, Express, and MongoDB to build a full-stack microblog application.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SF-WDI-LABS/express-microblog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SF-WDI-LABS/express-microblog/issues"
+  },
+  "homepage": "https://github.com/SF-WDI-LABS/express-microblog#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.10"
+  }
+}
