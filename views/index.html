@@ -62,7 +62,7 @@
           <!-- handlebars template -->
           <script id="posts-template" type="text/x-handlebars-template">
             {{#each posts}}
-              <li class="list-group-item post" data-id="{{_id}}">
+              <li class="list-group-item panel panel-default post" data-id="{{_id}}">
 
                 <!-- post label (title) -->
                 <span class="label label-default">{{title}}</span>
@@ -110,7 +110,7 @@
                     {{#each comments}}
                       <li class="list-group-item comment">
                         <p>{{commentBody}}<p>
-                          <strong{{name}}</strong>
+                          <strong>{{name}}</strong>
                       </li>
 
                     {{/each}}
