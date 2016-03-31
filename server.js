@@ -136,7 +136,6 @@ app.post('/api/posts/:post_id/comments', function createComment(req, res) {
 });
 
 
-
 // listen on port 3000
 app.listen(3000, function() {
   console.log('server started');

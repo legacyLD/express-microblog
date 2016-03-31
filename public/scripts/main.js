@@ -91,20 +91,19 @@ $(document).on('ready', function() {
       type: 'PUT',
       url: baseUrl + '/' + postId,
       data: updatedPostData,
-      success: updatePostSuccess
+      success: function updatePostSuccess(data) {
+        // find the post to update by its id
+        var postToUpdate = allPosts.filter(function (p) {
+          return p._id === postId;
+        })[0];
+        // replace post to update with newly updated version (data)
+        allPosts.splice(allPosts.indexOf(postToUpdate), 1, data);
+        // render all posts to view
+        render();
+      }
     });
   });
 
-  function updatePostSuccess(data) {
-    // find the post to update by its id
-    var postToUpdate = allPosts.filter(function (p) {
-      return p._id === postId;
-    })[0];
-    // replace post to update with newly updated version (data)
-    allPosts.splice(allPosts.indexOf(postToUpdate), 1, data);
-    // render all posts to view
-    render();
-  }
 
   // for adding a comment to a post: submit event on `.add-comment` form
   $postsList.on('submit', '.add-comment', function (event) {
