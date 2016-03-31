@@ -123,9 +123,9 @@ app.post('/api/posts/:post_id/comments', function createComment(req, res) {
       foundPost.comments.push(savedComment);
 
       foundPost.save(function sendPostBack(err, commentedPost) {
-        if (err) { return console.log(err)}
-        console.log("Successfully added Comment to Post: ",commentedPost)
-        console.log("Created at: " + commentedPost._id)
+        if (err) { return console.log(err); }
+        console.log("Successfully added Comment to Post: ",commentedPost);
+        console.log("Created at: " + commentedPost._id);
         res.status(201).json(commentedPost);
 
       })
@@ -134,7 +134,6 @@ app.post('/api/posts/:post_id/comments', function createComment(req, res) {
 
   });
 });
-
 
 
 // listen on port 3000

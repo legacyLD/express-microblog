@@ -1,6 +1,11 @@
 h1 {
   margin-top: 40px;
 }
+
+.panel {
+    background-color: #fcfcfc;
+}
+
 .pull-right a {
   color: #000;
   cursor: pointer;

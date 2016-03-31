@@ -1,7 +1,8 @@
 //POSTS DB Model
 var mongoose = require("mongoose");
-var Comment = require("./comment.js")
 var Schema = mongoose.Schema;
+
+var Comment = require("./comment.js");
 
 var PostSchema = new Schema({
   title: {
