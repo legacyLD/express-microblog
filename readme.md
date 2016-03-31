@@ -25,6 +25,7 @@
 
 * Add a "comments" attribute to your blog posts.  A user should be able to add comments to a post and see all the comments on a post.  Add the following route:   
   * `POST /api/posts/:post_id/comments` to CREATE a new comment for the specified post   
+* Check out [mongoose validations](http://mongoosejs.com/docs/validation), and add the built-in [`required`](http://mongoosejs.com/docs/api.html#schematype_SchemaType-required) validator to one or more of your data's attributes.  
 * Add a "category" attribute to your blog posts. When a user clicks on a category, take them to a page that displays all the blog posts that have that category.  
 
 ## Getting Started
