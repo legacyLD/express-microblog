@@ -8,22 +8,21 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').renderFile);
+// app.set('views', __dirname + '/views');
 
 // we can access Post and Comment by calling db.Post and db.Comment respectively
 var db = require('./models');
 
 
-app.get('/', function (req, res) {
-  res.render('index.html');
+app.get('/', function homePage(req, res) {
+  res.sendFile(__dirname + '/views/index.html');
 });
 
 
 // API ROUTES
 
 // get all posts
-app.get('/api/posts', function (req, res) {
+app.get('/api/posts', function getAllPosts(req, res) {
   // find all posts in db
   db.Post.find({}, function findAllPosts(err, allPosts) {
     //err
@@ -36,7 +35,7 @@ app.get('/api/posts', function (req, res) {
 });
 
 // create new post
-app.post('/api/posts', function (req, res) {
+app.post('/api/posts', function createNewPost(req, res) {
   // create new post with form data (`req.body`)
   var newPost = new db.Post(req.body);
 
@@ -52,7 +51,7 @@ app.post('/api/posts', function (req, res) {
 });
 
 // get one post
-app.get('/api/posts/:id', function (req, res) {
+app.get('/api/posts/:id', function getOnePost(req, res) {
   // get post id from url params (`req.params`)
   var postId = req.params.id;
 
